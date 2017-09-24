@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+class Solution {
+  public:
+    double Power(double base, int exponent) {
+        //return pow(base, exponent);
+        if(exponent == 0)
+            return 1;
+        if(exponent > 0) {
+            if((exponent & 1) == 1) {
+                double tmp = Power(base, exponent/2);
+                return tmp * tmp * base;
+            } else {
+                double tmp = Power(base, exponent/2);
+                return tmp * tmp;
+            }
+        } else {
+            if((exponent & 1) == 1) {
+                double tmp = Power(base, exponent/2);
+                return tmp * tmp * (1/base);
+            } else {
+                double tmp = Power(base, exponent/2);
+                return tmp * tmp;
+            }
+
+        }
+    }
+};
+
+int main() {
+    Solution s;
+    cout << s.Power(2,-3) << endl;
+
+}

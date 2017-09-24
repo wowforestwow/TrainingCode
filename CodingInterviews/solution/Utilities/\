@@ -1,0 +1,33 @@
+#include <iostream>
+class ListNode {
+	public:
+		void ConnectListNode(ListNode &dest) {
+			this->next = &dest;
+		}
+		static void PrintList(ListNode &src) {
+			ListNode *node = &src;
+			while(node != NULL) {
+				std::cout << (*node).val << " " ;
+				node = node->next;
+			}
+		}
+		friend ostream & operator << (ostream &os, ListNode *node) {
+			while(node != nullptr)
+		}
+	private:
+		int val;
+		ListNode *next;
+	public:
+		ListNode(int x):
+			val{x}, next{nullptr} {
+			}
+};
+
+int main() {
+	ListNode a(1);
+	ListNode a1(2);
+	ListNode a2(3);
+	a.ConnectListNode(a1);
+	a1.ConnectListNode(a2);
+	ListNode::PrintList(a);
+}
